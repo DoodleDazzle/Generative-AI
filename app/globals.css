@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 238 84% 59%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 238 84% 59%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 238 84% 59%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 238 84% 59%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Custom Cursor Styles */
+.cursor {
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  border-radius: 50%;
+  background: transparent;
+  pointer-events: none;
+  z-index: 111;
+  border: 1px solid #fff;
+  transition: all 0.2s ease-out;
+  animation: moveCursor1 0.5s infinite alternate;
+}
+
+.expand {
+  background: transparent;
+  animation: moveCursor2 0.5s forwards;
+  border: 1px solid yellow;
+}
+
+@keyframes moveCursor1 {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.8);
+  }
+}
+
+@keyframes moveCursor2 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(2.5);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+/* Gradient Text Animation */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.text-gradient {
+  font-size: 3rem; /* Adjust based on design */
+  font-weight: bold;
+  text-align: center;
+  background: linear-gradient(270deg, #293eff,rgba(144, 255, 144, 0.853),rgb(253, 89, 116),#2df4ff);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientAnimation 6s ease infinite;
+}
+
+/* Light Theme Gradient (optional) */
+body.light-theme .text-gradient {
+  background: linear-gradient(270deg, #ff5f6d, #ffcc33, #4285f4);
+}
+
+.google-login-btn {
+    background-color: #4285F4; /* Google brand blue */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.google-login-btn:hover {
+    background-color: #357ae8; /* Slightly darker blue on hover */
+}
+
+/* Assuming .auth-button is the class used for GitHub button */
+.auth-button {
+    background-color: #333; /* Dark background for both buttons */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block; /* Ensure it's full-width if needed */
+    width: 90%; /* Adjust based on your layout */
+    margin: 10px auto; /* Centering the button */
+    text-align: center;
+}
+
+.auth-button:hover {
+    background-color: #555; /* Slightly lighter on hover */
+}
+  
